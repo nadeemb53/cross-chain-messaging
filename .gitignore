@@ -16,5 +16,5 @@ node_modules
 
 l1ReceiverAddress.txt
 l2SenderAddress.txt
-scripts/
 test/
+
