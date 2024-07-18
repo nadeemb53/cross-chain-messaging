@@ -15,13 +15,14 @@ async function main() {
     const receivedMessage = await l1Receiver.lastReceivedMessage();
     console.log("Received message on L1:", receivedMessage);
   } catch (error: any) {
+    console.log("Error occurred:", error.message);
     if (error.code === "BAD_DATA" && error.value === "0x") {
       console.log(
         "No message received yet. The L1 contract's lastReceivedMessage is empty."
       );
     } else {
-      // If it's a different error, we'll rethrow it
-      throw error;
+      // If it's a different error, we'll log it
+      console.error("Unexpected error:", error);
     }
   }
 }
