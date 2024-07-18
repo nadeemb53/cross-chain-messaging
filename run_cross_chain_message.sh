@@ -18,10 +18,9 @@ npx hardhat run scripts/sendMessageFromL2.ts --network lineaSepolia
 print_colored "\nWaiting for the message to be relayed to L1..." $YELLOW
 print_colored "This may take several minutes. Please wait...\n" $YELLOW
 
-# Loop to check L1 every 15 seconds for 20 minutes
+# Loop to check L1 20 times
 for i in {1..20}
 do
-    sleep 15
     print_colored "Checking L1 (attempt $i of 20)..." $YELLOW
     npx hardhat run scripts/checkMessageOnL1.ts --network ethereumSepolia
 

@@ -10,7 +10,10 @@ contract L1Receiver {
     }
 
     function receiveMessage(string memory message) external {
-        require(msg.sender == address(0), "Only callable by L2MessageService");
+        require(
+            msg.sender == l2ContractAddress,
+            "Only callable by L2MessageService"
+        );
         lastReceivedMessage = message;
     }
 
