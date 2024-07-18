@@ -9,10 +9,10 @@ const PRIVATE_KEY = process.env.PRIVATE_KEY || "";
 const INFURA_PROJECT_ID = process.env.INFURA_PROJECT_ID || "";
 
 const config: HardhatUserConfig = {
-  solidity: "0.8.24",
+  solidity: "0.8.19",
   networks: {
     lineaSepolia: {
-      url: "https://linea-sepolia.infura.io/v3/9aa3d95b3bc440fa88ea12eaa4456161",
+      url: "https://rpc.sepolia.linea.build",
       accounts: [PRIVATE_KEY],
     },
     ethereumSepolia: {
