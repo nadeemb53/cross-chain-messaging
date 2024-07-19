@@ -22,7 +22,7 @@ const messageServiceABI = [
 ];
 
 async function main() {
-  const L1_CONTRACT_ADDRESS = "0x4c668aE451e1a728C0D89879DEbb23B65403D3c7";
+  const L1_CONTRACT_ADDRESS = "0x015cF32B8a65AD5F304bF98d6B77834718D5A903";
   const MESSAGE_SERVICE_ADDRESS = "0xB218f8A4Bc926cF1cA7b3423c154a0D627Bdb7E5";
 
   // Read message data from file
@@ -47,13 +47,13 @@ async function main() {
     const tx = await messageService.claimMessage(
       messageData.from,
       messageData.to,
-      messageData.fee,
-      messageData.value,
+      ethers.getBigInt(messageData.fee),
+      ethers.getBigInt(messageData.value),
       (
         await ethers.provider.getSigner()
       ).address, // feeRecipient
       messageData.calldata,
-      messageData.nonce
+      ethers.getBigInt(messageData.nonce)
     );
 
     await tx.wait();

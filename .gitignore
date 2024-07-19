@@ -16,5 +16,6 @@ node_modules
 
 l1ReceiverAddress.txt
 l2SenderAddress.txt
+messageData.json
 test/
 
