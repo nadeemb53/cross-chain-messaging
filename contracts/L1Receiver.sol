@@ -3,21 +3,23 @@ pragma solidity ^0.8.19;
 
 contract L1Receiver {
     string public lastReceivedMessage;
-    address public l2ContractAddress;
+    address public l2MessageServiceAddress;
 
-    constructor(address _l2ContractAddress) {
-        l2ContractAddress = _l2ContractAddress;
+    constructor(address _l2MessageServiceAddress) {
+        l2MessageServiceAddress = _l2MessageServiceAddress;
     }
 
     function receiveMessage(string memory message) external {
-        // require(
-        //     msg.sender == l2ContractAddress,
-        //     "Only callable by L2MessageService"
-        // );
+        require(
+            msg.sender == l2MessageServiceAddress,
+            "Only callable by L2MessageService"
+        );
         lastReceivedMessage = message;
     }
 
-    function setL2ContractAddress(address _l2ContractAddress) external {
-        l2ContractAddress = _l2ContractAddress;
+    function setL2MessageServiceAddress(
+        address _l2MessageServiceAddress
+    ) external {
+        l2MessageServiceAddress = _l2MessageServiceAddress;
     }
 }

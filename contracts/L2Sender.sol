@@ -12,24 +12,20 @@ interface IL2MessageService {
 contract L2Sender {
     address public constant L2_MESSAGE_SERVICE =
         0x971e727e956690b9957be6d51Ec16E73AcAC83A7;
-    address public l1ContractAddress;
-    // uint256 public constant MESSAGE_FEE = 0 ether; // Example fee, adjust as needed
+    address public l1ReceiverAddress;
 
-    constructor(address _l1ContractAddress) {
-        l1ContractAddress = _l1ContractAddress;
+    constructor(address _l1ReceiverAddress) {
+        l1ReceiverAddress = _l1ReceiverAddress;
     }
 
     function greet(string memory messageToL1) external payable {
-        // require(msg.value >= MESSAGE_FEE, "Insufficient fee");
-
         bytes memory payload = abi.encodeWithSignature(
             "receiveMessage(string)",
             messageToL1
         );
-
-        IL2MessageService(L2_MESSAGE_SERVICE).sendMessage(
-            l1ContractAddress,
-            0,
+        IL2MessageService(L2_MESSAGE_SERVICE).sendMessage{value: msg.value}(
+            l1ReceiverAddress,
+            0, // No additional fee
             payload
         );
     }

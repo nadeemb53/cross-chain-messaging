@@ -2,7 +2,7 @@ import { ethers } from "hardhat";
 import { L1Receiver } from "../typechain-types";
 
 async function main() {
-  const L1_CONTRACT_ADDRESS = "0x015cF32B8a65AD5F304bF98d6B77834718D5A903";
+  const L1_CONTRACT_ADDRESS = "0xB68c6d93bA4a38d0E78C6486c13F637AA248ccbE";
 
   // Connect to L1 contract
   const l1Receiver = (await ethers.getContractAt(
