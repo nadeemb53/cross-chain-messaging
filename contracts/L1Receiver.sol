@@ -16,10 +16,4 @@ contract L1Receiver {
         );
         lastReceivedMessage = message;
     }
-
-    function setL2MessageServiceAddress(
-        address _l2MessageServiceAddress
-    ) external {
-        l2MessageServiceAddress = _l2MessageServiceAddress;
-    }
 }

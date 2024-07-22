@@ -13,8 +13,8 @@ This project demonstrates how to send messages from Linea (L2) to Ethereum (L1) 
 1. Clone the repository:
 
    ```
-   git clone <repository-url>
-   cd <repository-name>
+   git clone https://github.com/nadeemb53/cross-chain-messaging
+   cd cross-chain-messaging
    ```
 
 2. Install dependencies:
