@@ -4,7 +4,7 @@ import { L2Sender } from "../typechain-types";
 import * as fs from "fs";
 
 async function main() {
-  const L2_CONTRACT_ADDRESS = "0x407339B14163C51a5f609D1d8111A75c710E1b61";
+  const L2_CONTRACT_ADDRESS = "0xcbAB5E483Ae579251BeBE2f844eC38E52BD72Ca8";
   const L2_MESSAGE_SERVICE = "0x971e727e956690b9957be6d51Ec16E73AcAC83A7";
 
   const l2Sender = (await ethers.getContractAt(
@@ -18,7 +18,7 @@ async function main() {
   const iface = new ethers.Interface(messageSentEventABI);
 
   const tx = await l2Sender.greet("Hello from Linea!", {
-    value: ethers.parseEther("0.001"),
+    value: ethers.parseEther("0.2"),
   });
   console.log("Message sent from L2 to L1");
   console.log("Transaction hash:", tx.hash);

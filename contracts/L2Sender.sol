@@ -13,6 +13,7 @@ contract L2Sender {
     address public constant L2_MESSAGE_SERVICE =
         0x971e727e956690b9957be6d51Ec16E73AcAC83A7;
     address public l1ReceiverAddress;
+    uint256 sufficient_fee = 0.1 ether;
 
     constructor(address _l1ReceiverAddress) {
         l1ReceiverAddress = _l1ReceiverAddress;
@@ -25,7 +26,7 @@ contract L2Sender {
         );
         IL2MessageService(L2_MESSAGE_SERVICE).sendMessage{value: msg.value}(
             l1ReceiverAddress,
-            0, // No additional fee
+            sufficient_fee,
             payload
         );
     }
