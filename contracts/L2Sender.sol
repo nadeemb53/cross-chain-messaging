@@ -23,7 +23,7 @@ contract L2Sender {
             "receiveMessage(string)",
             messageToL1
         );
-        IL2MessageService(L2_MESSAGE_SERVICE).sendMessage{value: msg.value}(
+        IL2MessageService(L2_MESSAGE_SERVICE).sendMessage(
             l1ReceiverAddress,
             0,
             payload
