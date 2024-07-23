@@ -95,7 +95,7 @@ This project demonstrates how to send messages from Linea (L2) to Ethereum (L1) 
 
 3. **Claiming the Message (L1)**:
    - Once the batch containing the message is processed on L1, the message becomes available for claiming.
-   - The `claimMessage` function on the L1 `MessageService` contract is called (either manually or via the Linea SDK).
+   - The `claimMessageWithProof` function on the L1 `MessageService` contract is called via the Linea SDK.
    - This function verifies the message and executes the intended call on the target L1 contract.
 
 ### Smart Contracts
